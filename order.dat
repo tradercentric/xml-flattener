@@ -1,0 +1,2 @@
+action|orderCurrency|orderId|orderPrice|orderQty|orderType
+"create"|"USD"|"O123"|"100.00"|"100"|"BUY"

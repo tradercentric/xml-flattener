@@ -1,11 +1,3 @@
-# xml-flattener
-
-Turn an xml document into flat files.
-
-# Input
-
-payload.xml: </br>
-
 <payload>
   <order action="create">
     <orderId>O123</orderId>
@@ -28,16 +20,3 @@ payload.xml: </br>
     </allocations>
   </order>
 </payload>
-
-# Output
-
-order.dat
-
-action|orderCurrency|orderId|orderPrice|orderQty|orderType
-"create"|"USD"|"O123"|"100.00"|"100"|"BUY"
-
-allocations.dat
-
-account|accountCurrency|action|orderId
-"111111"|"USD"|"create"|"O123"
-"222222"|"USD"|"create"|"O123"
