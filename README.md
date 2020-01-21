@@ -1,11 +1,12 @@
 # xml-flattener
 
-Turn an xml document into flat files.
+Turn an xml document into flat files.</br>
 
 # Input
 
-payload.xml: </br>
+payload.xml: </br></br>
 
+<pre>
 <code>
 <payload>
   <order action="create">
@@ -30,16 +31,17 @@ payload.xml: </br>
   </order>
 </payload>
 </code>
+</pre>
 
 # Output
 
-order.dat
+order.dat </br></br>
 
-action|orderCurrency|orderId|orderPrice|orderQty|orderType
-"create"|"USD"|"O123"|"100.00"|"100"|"BUY"
+action|orderCurrency|orderId|orderPrice|orderQty|orderType</br>
+"create"|"USD"|"O123"|"100.00"|"100"|"BUY"</br>
 
-allocations.dat
+allocations.dat</br></br>
 
-account|accountCurrency|action|orderId
-"111111"|"USD"|"create"|"O123"
-"222222"|"USD"|"create"|"O123"
+account|accountCurrency|action|orderId</br>
+"111111"|"USD"|"create"|"O123"</br>
+"222222"|"USD"|"create"|"O123"</br>
