@@ -8,30 +8,28 @@ payload.xml: </br>
 
 <pre>
 <code>
-```xml
-<payload>
-  <order action="create">
-    <orderId>O123</orderId>
-    <ticker>IBM</ticker>
-    <orderQty>100</orderQty>
-    <orderPrice>100.00</orderPrice>
-    <orderCurrency>USD</orderCurrency>
-    <orderType>BUY</orderType>
-    <allocations>
-      <allocation action ="create">
-        <orderId>O123</orderId>
-        <account>111111</account>
-        <accountCurrency>USD</accountCurrency>
-      </allocation>
-      <allocation action ="create">
-        <orderId>O123</orderId>
-        <account>222222</account>
-        <accountCurrency>USD</accountCurrency>
-      </allocation>
-    </allocations>
-  </order>
-</payload>
-```
+&lt;payload&gt;
+  &lt;order action="create"&gt;
+    &lt;orderId&gt;O123&lt;/orderId&gt;
+    &lt;ticker&gt;IBM&lt;/ticker&gt;
+    &lt;orderQty&gt;100&lt;/orderQty&gt;
+    &lt;orderPrice&gt;100.00&lt;/orderPrice&gt;
+    &lt;orderCurrency&gt;USD&lt;/orderCurrency&gt;
+    &lt;orderType&gt;BUY&lt;/orderType&gt;
+    &lt;allocations&gt;
+      &lt;allocation action ="create"&gt;
+        &lt;orderId&gt;O123&lt;/orderId&gt;
+        &lt;account&gt;111111&lt;/account&gt;
+        &lt;accountCurrency&gt;USD&lt;/accountCurrency&gt;
+      &lt;/allocation&gt;
+      &lt;allocation action ="create"&gt;
+        &lt;orderId&gt;O123&lt;/orderId&gt;
+        &lt;account&gt;222222&lt;/account&gt;
+        &lt;accountCurrency&gt;USD&lt;/accountCurrency&gt;
+      &lt;/allocation&gt;
+    &lt;/allocations&gt;
+  &lt;/order&gt;
+&lt;/payload&gt;
 </code>
 </pre>
 
