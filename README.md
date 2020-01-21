@@ -4,10 +4,11 @@ Turn an xml document into flat files.</br>
 
 # Input
 
-payload.xml: </br></br>
+payload.xml: </br>
 
 <pre>
 <code>
+```xml
 <payload>
   <order action="create">
     <orderId>O123</orderId>
@@ -30,17 +31,18 @@ payload.xml: </br></br>
     </allocations>
   </order>
 </payload>
+```
 </code>
 </pre>
 
 # Output
 
-order.dat </br></br>
+order.dat </br>
 
 action|orderCurrency|orderId|orderPrice|orderQty|orderType</br>
 "create"|"USD"|"O123"|"100.00"|"100"|"BUY"</br>
 
-allocations.dat</br></br>
+allocations.dat</br>
 
 account|accountCurrency|action|orderId</br>
 "111111"|"USD"|"create"|"O123"</br>
