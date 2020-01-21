@@ -6,6 +6,7 @@ Turn an xml document into flat files.
 
 payload.xml: </br>
 
+<code>
 <payload>
   <order action="create">
     <orderId>O123</orderId>
@@ -28,6 +29,7 @@ payload.xml: </br>
     </allocations>
   </order>
 </payload>
+</code>
 
 # Output
 
