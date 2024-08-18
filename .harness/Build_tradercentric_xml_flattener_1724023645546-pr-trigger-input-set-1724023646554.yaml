@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_tradercentric_xml_flattener_1724023645546-pr-trigger-input-set
+  identifier: Build_tradercentric_xml_flattener_1724023645546prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: Netcore_test_build
+  pipeline:
+    identifier: Build_tradercentric_xml_flattener_1724023645546
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
