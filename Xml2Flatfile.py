@@ -12,19 +12,16 @@ def get_dict_list(root, config_item):
     for e in entities:
         this = {}
         for key in include_attributes:
-            this[key] = None
-            if key in e.attrib.keys():
-                this[key] = e.attrib[key]
+            this[key] = e.attrib.get(key)
         for el in include_elements:
-            this[el.split('/')[-1]] = None
-            if e.find(el) != None:
-                this[e.find(el).tag] = e.find(el).text
+            found = e.find(el)
+            this[el.split('/')[-1]] = found.text if found is not None else None
         records.append(this)
     return records
 
 
 def process_file(in_file, target, out_file, configItems):
-    print("Input file : %s" % in_file)
+    print(f"Input file : {in_file}")
     root = etree.parse(in_file).getroot()
     keys = []
     records = []
@@ -32,28 +29,27 @@ def process_file(in_file, target, out_file, configItems):
         if configItem[0] == target:
             records = get_dict_list(root, configItem)
             if len(records) == 0:
-                print("No record found for target: %s" % target)
+                print(f"No record found for target: {target}")
                 return
-            for k in records[0].keys():
-                keys.append(k)
-    keys = sorted(keys)
+            keys = sorted(records[0].keys())
     header = '|'.join(keys)
-    text_file = open(out_file, "w")
-    text_file.write("{0}\n".format(header))
 
-    for r in records:
-        fields = []
-        for k in keys:
-            v = r[k]
-            if v is None:
-                fields.append('')
-            else:
-                v = '"' + v.strip('|').strip('\n').strip('"') + '"'
-                fields.append(v)
-        detail = '|'.join(fields)
-        text_file.write("{0}\n".format(detail))
-    text_file.close()
-    print("Output file: %s" % out_file)
+    with open(out_file, "w") as text_file:
+        text_file.write(f"{header}\n")
+
+        for r in records:
+            fields = []
+            for k in keys:
+                v = r[k]
+                if v is None:
+                    fields.append('')
+                else:
+                    v = '"' + v.replace('|', '').replace('\n', '').replace('"', '') + '"'
+                    fields.append(v)
+            detail = '|'.join(fields)
+            text_file.write(f"{detail}\n")
+
+    print(f"Output file: {out_file}")
 
 
 if __name__ == '__main__':
@@ -62,6 +58,7 @@ if __name__ == '__main__':
         ['order',
          {'action'},
          {'orderId',
+          'ticker',
           'orderQty',
           'orderPrice',
           'orderCurrency',
@@ -85,4 +82,4 @@ if __name__ == '__main__':
     process_file('./payload.xml', 'allocations/allocation', './allocations.dat', configItems)
 
     end = time.time()
-    print("Elapsed (s): %d" % (end - start))
+    print(f"Elapsed (s): {end - start:.3f}")
